@@ -1,0 +1,153 @@
+From 4afd0103e75ee41a3813962a2700ab2a2194d57e Mon Sep 17 00:00:00 2001
+From: hanahreum2 <han_7654@naver.com>
+Date: Mon, 22 Jul 2019 14:27:03 +0900
+Subject: [PATCH] no message
+
+---
+ instagram/.classpath                          |  2 +-
+ .../org.eclipse.wst.common.component          |  3 +-
+ instagram/pom.xml                             |  6 +--
+ instagram/src/main/webapp/WEB-INF/web.xml     | 54 +++++++++++--------
+ .../maven/com.mvc/insta/pom.properties        |  2 +-
+ .../META-INF/maven/com.mvc/insta/pom.xml      |  6 +--
+ 6 files changed, 42 insertions(+), 31 deletions(-)
+
+diff --git a/instagram/.classpath b/instagram/.classpath
+index 166a36f..89687ca 100644
+--- a/instagram/.classpath
++++ b/instagram/.classpath
+@@ -22,7 +22,7 @@
+ 	</classpathentry>
+ 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.5">
+ 		<attributes>
+-			<attribute name="owner.project.facets" value="jst.web"/>
++			<attribute name="owner.project.facets" value="jst.web;#system#"/>
+ 		</attributes>
+ 	</classpathentry>
+ 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_191">
+diff --git a/instagram/.settings/org.eclipse.wst.common.component b/instagram/.settings/org.eclipse.wst.common.component
+index 622b262..038e03e 100644
+--- a/instagram/.settings/org.eclipse.wst.common.component
++++ b/instagram/.settings/org.eclipse.wst.common.component
+@@ -1,4 +1,5 @@
+-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
++<?xml version="1.0" encoding="UTF-8"?>
++<project-modules id="moduleCoreId" project-version="1.5.0">
+ 	<wb-module deploy-name="instagram">
+         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+ 		<wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+diff --git a/instagram/pom.xml b/instagram/pom.xml
+index a394da1..ca14755 100644
+--- a/instagram/pom.xml
++++ b/instagram/pom.xml
+@@ -4,12 +4,12 @@
+ 	<modelVersion>4.0.0</modelVersion>
+ 	<groupId>com.mvc</groupId>
+ 	<artifactId>insta</artifactId>
+-	<name>com.mvc.insta</name>
++	<name>instagram</name>
+ 	<packaging>war</packaging>
+ 	<version>1.0.0-BUILD-SNAPSHOT</version>
+ 	<properties>
+-		<java-version>1.6</java-version>
+-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
++		<java-version>1.8</java-version>
++		<org.springframework-version>5.1.2.RELEASE</org.springframework-version>
+ 		<org.aspectj-version>1.6.10</org.aspectj-version>
+ 		<org.slf4j-version>1.6.6</org.slf4j-version>
+ 	</properties>
+diff --git a/instagram/src/main/webapp/WEB-INF/web.xml b/instagram/src/main/webapp/WEB-INF/web.xml
+index 780e97f..c9975d5 100644
+--- a/instagram/src/main/webapp/WEB-INF/web.xml
++++ b/instagram/src/main/webapp/WEB-INF/web.xml
+@@ -1,23 +1,33 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+-  <context-param>
+-    <param-name>contextConfigLocation</param-name>
+-    <param-value>/WEB-INF/spring/root-context.xml</param-value>
+-  </context-param>
+-  <listener>
+-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+-  </listener>
+-  <servlet>
+-    <servlet-name>appServlet</servlet-name>
+-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+-    <init-param>
+-      <param-name>contextConfigLocation</param-name>
+-      <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+-    </init-param>
+-    <load-on-startup>1</load-on-startup>
+-  </servlet>
+-  <servlet-mapping>
+-    <servlet-name>appServlet</servlet-name>
+-    <url-pattern>/</url-pattern>
+-  </servlet-mapping>
+-</web-app>
+\ No newline at end of file
++<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
++	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
++
++	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
++	<context-param>
++		<param-name>contextConfigLocation</param-name>
++		<param-value>/WEB-INF/spring/root-context.xml</param-value>
++	</context-param>
++	
++	<!-- Creates the Spring Container shared by all Servlets and Filters -->
++	<listener>
++		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
++	</listener>
++
++	<!-- Processes application requests -->
++	<servlet>
++		<servlet-name>appServlet</servlet-name>
++		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
++		<init-param>
++			<param-name>contextConfigLocation</param-name>
++			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
++		</init-param>
++		<load-on-startup>1</load-on-startup>
++	</servlet>
++		
++	<servlet-mapping>
++		<servlet-name>appServlet</servlet-name>
++		<url-pattern>/</url-pattern>
++	</servlet-mapping>
++
++</web-app>
+diff --git a/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.properties b/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.properties
+index bce520c..2e52b9b 100644
+--- a/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.properties
++++ b/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.properties
+@@ -1,5 +1,5 @@
+ #Generated by Maven Integration for Eclipse
+-#Mon Jul 22 14:00:02 KST 2019
++#Mon Jul 22 14:25:50 KST 2019
+ version=1.0.0-BUILD-SNAPSHOT
+ groupId=com.mvc
+ m2e.projectName=instagram
+diff --git a/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.xml b/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.xml
+index a394da1..ca14755 100644
+--- a/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.xml
++++ b/instagram/target/m2e-wtp/web-resources/META-INF/maven/com.mvc/insta/pom.xml
+@@ -4,12 +4,12 @@
+ 	<modelVersion>4.0.0</modelVersion>
+ 	<groupId>com.mvc</groupId>
+ 	<artifactId>insta</artifactId>
+-	<name>com.mvc.insta</name>
++	<name>instagram</name>
+ 	<packaging>war</packaging>
+ 	<version>1.0.0-BUILD-SNAPSHOT</version>
+ 	<properties>
+-		<java-version>1.6</java-version>
+-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
++		<java-version>1.8</java-version>
++		<org.springframework-version>5.1.2.RELEASE</org.springframework-version>
+ 		<org.aspectj-version>1.6.10</org.aspectj-version>
+ 		<org.slf4j-version>1.6.6</org.slf4j-version>
+ 	</properties>
+-- 
+2.22.0.windows.1
+

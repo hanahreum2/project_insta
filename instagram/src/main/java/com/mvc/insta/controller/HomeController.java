@@ -1,4 +1,4 @@
-package com.mvc.insta;
+package com.mvc.insta.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
