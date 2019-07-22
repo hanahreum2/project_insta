@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
-public class HomeController {
+@Controller
+public class UserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -32,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "user/signUpForm";
 	}
 	
 }
