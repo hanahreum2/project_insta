@@ -19,6 +19,9 @@
 			#{user_key}	
 		)
 	</insert>
+	<select id="loginUser" parameterType="UserVO" resultType="com.mvc.insta.vo.UserVO">
+		select * from sns_user where user_email=#{user_email} and user_pw=#{user_pw}
+	</select>
 
 
 </mapper>

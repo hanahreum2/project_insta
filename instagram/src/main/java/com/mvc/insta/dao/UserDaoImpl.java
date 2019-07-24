@@ -18,7 +18,11 @@ public class UserDaoImpl implements UserDao{
 	public void insertUser(UserVO userVO) throws Exception {
 		sqlSession.insert(namespace+".insertUser", userVO);
 		System.out.println("insert");
-		
+	}
+
+	@Override
+	public UserVO loginUser(UserVO userVO) throws Exception {
+		return sqlSession.selectOne(namespace+".loginUser", userVO);
 	}
 
 }
