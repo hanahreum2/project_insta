@@ -8,6 +8,7 @@
 <configuration>
 <typeAliases>
     <typeAlias type="com.mvc.insta.vo.UserVO" alias="UserVO"/>
+    <typeAlias type="com.mvc.insta.vo.AdminVO" alias="AdminVO"/>
 
 	
 </typeAliases>

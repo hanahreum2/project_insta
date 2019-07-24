@@ -1,0 +1,10 @@
+CREATE TABLE `sns_user` (
+	`user_email` VARCHAR(50) NOT NULL,
+	`user_name` VARCHAR(50) NOT NULL,
+	`user_pw` VARCHAR(50) NOT NULL,
+	`user_check_pw` VARCHAR(50) NOT NULL,
+	`user_phone` VARCHAR(50) NULL DEFAULT NULL,
+	`user_rdate` DATE NULL DEFAULT NULL,
+	`user_img` VARCHAR(500) NULL DEFAULT NULL,
+	`user_key` VARCHAR(50) NULL DEFAULT NULL
+);

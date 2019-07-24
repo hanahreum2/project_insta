@@ -3,9 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -16,19 +13,18 @@
             <img src="${pageContext.request.contextPath}/resources/img/title.png" alt="instagram title img">
 
             <form class="sign_Form">
-              <input type="text" id="user_email" placeholder="E-MAIL"/>
-              <input type="text" id="user_name" placeholder="사용자 이름"/>
-              <input type="password" id="user_pw" placeholder="비밀번호"/>
-              <input type="password" id="user_check_pw" placeholder="비밀번호 확인"/>
-              <button>회원가입</button>
+              <input type="text" placeholder="이메일"/>
+              <input type="password" placeholder="비밀번호"/>
+              <button>로그인</button>
               <div class="hr-sect">또는</div>
 
               <div class="kakaoLogin" style="text-align: center">
                   <a href="#"><img src="${pageContext.request.contextPath}/resources/img/kakao.png" alt="카카오로고"></a>
               </div>
               
+              <p id="forgot_PW" style="text-align: center;"><a href="#">비밀번호를 잊으셨나요?</a></p>
               <div class="hr-sect"></div>
-              <p class="signUp_signIn" style="text-align: center;">계정이 있? <a href="/user/signInForm">로그인하기</a></p>
+              <p id="signUp_signIn" style="text-align: center;">계정이 없으신가요? <a href="/user/signUpForm">가입하기</a></p>
             </form>
           </div>
         </div>
