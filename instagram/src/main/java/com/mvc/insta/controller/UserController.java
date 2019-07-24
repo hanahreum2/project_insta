@@ -25,6 +25,7 @@ public class UserController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -48,6 +49,14 @@ public class UserController {
 		return mav;
 		
 	}
+	
+	@RequestMapping(value = "/")
+	public String home2(Model model) {
+
+		return "user/signUpForm";
+	}
+	
+	
 	
 	
 	
