@@ -51,7 +51,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/")
-	public String home11(Model model) {
+	public String home123123(Model model) {
 
 		return "user/signUpForm";
 	}
