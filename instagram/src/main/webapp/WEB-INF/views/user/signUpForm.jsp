@@ -15,12 +15,13 @@
           <div class="form">
             <img src="${pageContext.request.contextPath}/resources/img/title.png" alt="instagram title img">
 
-            <form class="sign_Form">
-              <input type="text" id="user_email" placeholder="E-MAIL"/>
-              <input type="text" id="user_name" placeholder="사용자 이름"/>
-              <input type="password" id="user_pw" placeholder="비밀번호"/>
-              <input type="password" id="user_check_pw" placeholder="비밀번호 확인"/>
+            <form class="sign_Form" action="/signUp.do" method="post">
+              <input type="text" id="user_email" name="user_email" placeholder="E-MAIL"/>
+              <input type="text" id="user_name" name="user_name" placeholder="사용자 이름"/>
+              <input type="password" id="user_pw" name="user_pw" placeholder="비밀번호"/>
+              <input type="password" id="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
               <button>회원가입</button>
+              
               <div class="hr-sect">또는</div>
 
               <div class="kakaoLogin" style="text-align: center">
