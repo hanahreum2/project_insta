@@ -52,7 +52,7 @@ public class UserController {
 	
 	@RequestMapping(value = "/")
 	public String home11(Model model) {
-
+		System.out.println("test");
 		return "user/signUpForm";
 	}
 	
