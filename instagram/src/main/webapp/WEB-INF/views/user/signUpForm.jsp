@@ -18,15 +18,16 @@
 
             <form:form class="sign_Form" modelAttribute="userVO" action="/signUp.do" method="post">
               <form:input type="text" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL"/>
-              <form:errors cssStyle="color: red;" path="user_email" />
+              <form:errors cssStyle="color: red; font-size: 14px;" path="user_email" />
               
               <form:input type="text" path="user_name" id="user_name" name="user_name" placeholder="사용자 이름"/>
-              <form:errors cssStyle="color: red;" path="user_name" />
+              <form:errors cssStyle="color: red; font-size: 14px;" path="user_name" />
               
               <form:input type="password" id="user_pw" path="user_pw" name="user_pw" placeholder="비밀번호"/>
-              <form:errors cssStyle="color: red;" path="user_pw" />
-              <input type="password" id="user_check_pw" pahte="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
-              <form:errors cssStyle="color: red;" path="user_check_pw" />
+              <form:errors cssStyle="color: red; font-size: 14px;" path="user_pw" />
+              
+              <input type="password" id="user_check_pw" path="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
+              <form:errors cssStyle="color: red; font-size: 14px;" path="user_check_pw" />
               <button>회원가입</button>
               
               <div class="hr-sect">또는</div>

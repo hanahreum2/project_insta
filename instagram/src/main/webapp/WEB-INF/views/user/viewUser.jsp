@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input name="user_email" value="${vo.user_email }">
-
+<input name="user_email" value="${vo.user_email }"><p>
+<input name="user_name" value="${vo.user_name }">
 </body>
 </html>

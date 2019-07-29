@@ -8,25 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>회원목록</h1>
-<table border="1">
-<tr>
-	<th>이메일</th>
-	<th>이름</th>
-	<th>가입날짜</th>
-</tr>
-<c:forEach var="list" items="${list }">
-
-<tr>
-	<td><a href="${path}/viewUser.do?user_email=${list.user_email }">${list.user_email }</a></td>
-	<td>${list.user_name }</td>
-	<td>${list.user_rdate }</td>
-</tr>
-
-</c:forEach>
+<h1>회원가입 완료 추카추카</h1>
 
 
-
-</table>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,7 +33,7 @@ public class UserController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	//@RequestMapping(value = "/")
+	@RequestMapping(value = "/")
 	public String home(Model model) {
 		model.addAttribute("userVO", new UserVO());
 		return "user/signUpForm";
@@ -57,13 +58,14 @@ public class UserController {
 	
 	//회원가입
 	@RequestMapping(value = "/signUp.do")
-	public String MemberInit(@ModelAttribute UserVO userVO, BindingResult bindingResult, Model model) throws Exception {
-    	new UserValidator().validate(userVO, bindingResult);
+	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
+    	new UserValidator().validate(userVO, errors);
         
     	//validator 에러 있으면 이페이지로 이동
-        if(bindingResult.hasErrors()){ 
+        if(errors.hasErrors()){ 
             return "user/signUpForm";  
         }
+
         
         userService.insertUser(userVO);
 		return "user/signUpOk";
@@ -72,7 +74,7 @@ public class UserController {
 	
 	
 	//회원 전체 리스트
-	@RequestMapping(value="/")
+//	@RequestMapping(value="/")
 	public String userList(Model model) throws Exception {
 		List<UserVO> list = userService.userList();
 		model.addAttribute("list", list);
@@ -83,7 +85,6 @@ public class UserController {
 	@RequestMapping("/viewUser.do")
 	public String userView(String user_email, Model model) throws Exception {
 		model.addAttribute("vo", userService.viewUser(user_email));
-		
 		logger.info("클릭한 이메일 : " + user_email);
 		
 		return "user/viewUser";
