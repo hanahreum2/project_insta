@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +16,17 @@
           <div class="form">
             <img src="${pageContext.request.contextPath}/resources/img/title.png" alt="instagram title img">
 
-            <form class="sign_Form" action="/signUp.do" method="post">
-              <input type="text" id="user_email" name="user_email" placeholder="E-MAIL"/>
-              <input type="text" id="user_name" name="user_name" placeholder="사용자 이름"/>
-              <input type="password" id="user_pw" name="user_pw" placeholder="비밀번호"/>
-              <input type="password" id="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
+            <form:form class="sign_Form" modelAttribute="userVO" action="/signUp.do" method="post">
+              <form:input type="text" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL"/>
+              <form:errors cssStyle="color: red;" path="user_email" />
+              
+              <form:input type="text" path="user_name" id="user_name" name="user_name" placeholder="사용자 이름"/>
+              <form:errors cssStyle="color: red;" path="user_name" />
+              
+              <form:input type="password" id="user_pw" path="user_pw" name="user_pw" placeholder="비밀번호"/>
+              <form:errors cssStyle="color: red;" path="user_pw" />
+              <input type="password" id="user_check_pw" pahte="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
+              <form:errors cssStyle="color: red;" path="user_check_pw" />
               <button>회원가입</button>
               
               <div class="hr-sect">또는</div>
@@ -30,7 +37,7 @@
               
               <div class="hr-sect"></div>
               <p class="signUp_signIn" style="text-align: center;">계정이 있? <a href="/user/signInForm">로그인하기</a></p>
-            </form>
+            </form:form>
           </div>
         </div>
 

@@ -1,5 +1,7 @@
 package com.mvc.insta.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,6 +21,16 @@ public class UserDaoImpl implements UserDao{
 		sqlSession.insert(namespace+".insertUser", userVO);
 		System.out.println("insert");
 		
+	}
+
+	@Override
+	public List<UserVO> userList() throws Exception {
+		return sqlSession.selectList(namespace+ ".userList");
+	}
+
+	@Override
+	public UserVO viewUser(String user_email) throws Exception {
+		return sqlSession.selectOne(namespace+".viewUser", user_email);
 	}
 
 }

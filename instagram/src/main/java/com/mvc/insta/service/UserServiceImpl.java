@@ -1,5 +1,7 @@
 package com.mvc.insta.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,16 @@ public class UserServiceImpl implements UserService{
 	public void insertUser(UserVO userVO) throws Exception {
 		userDao.insertUser(userVO);
 		
+	}
+
+	@Override
+	public List<UserVO> userList() throws Exception {
+		return userDao.userList();
+	}
+
+	@Override
+	public UserVO viewUser(String user_email) throws Exception {
+		return userDao.viewUser(user_email);
 	}
 
 }
