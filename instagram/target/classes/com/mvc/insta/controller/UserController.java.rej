@@ -1,0 +1,9 @@
+diff a/instagram/src/main/java/com/mvc/insta/controller/UserController.java b/instagram/src/main/java/com/mvc/insta/controller/UserController.java	(rejected hunks)
+@@ -52,7 +52,6 @@
+ 	
+ 	@RequestMapping(value = "/")
+ 	public String home11(Model model) {
+-
+ 		System.out.println("test");
+ 		return "user/signUpForm";
+ 	}
