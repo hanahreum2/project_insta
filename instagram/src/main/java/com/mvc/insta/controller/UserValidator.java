@@ -1,0 +1,31 @@
+package com.mvc.insta.controller;
+
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+
+import com.mvc.insta.vo.UserVO;
+
+public class UserValidator implements Validator{
+
+	@Override
+	public boolean supports(Class<?> clazz) {
+		return UserVO.class.isAssignableFrom(clazz);
+	}
+
+	@Override
+	public void validate(Object obj, Errors errors) {
+		UserVO userVO = (UserVO) obj;
+		
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user_email", "required", "필수입력 사항입니다.");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user_pw", "required", "필수입력 사항입니다.");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user_check_pw", "required", "필수입력 사항입니다.");
+		//이름 유효성 체크
+		if(userVO.getUser_name() == null || userVO.getUser_name().trim().isEmpty()) {
+			System.out.println("회원 이름 입력");
+			errors.rejectValue("user_name", "empty","이름을 입력해주세요");
+		}
+
+	}
+
+}

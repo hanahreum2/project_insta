@@ -7,20 +7,36 @@
 <mapper namespace="user">
 
 	<insert id="insertUser" parameterType="UserVO">
-		insert into sns_user(user_email, user_name, user_pw, user_check_pw, user_phone, user_rdate, user_img, user_key)
+		insert into sns_user(user_email, user_name, user_pw, user_phone, user_rdate, user_img, user_key)
 		values (
 			#{user_email},					
 			#{user_name},					
 			#{user_pw},			
-			#{user_check_pw},					
 			#{user_phone},				
 			#{user_rdate},				
 			#{user_img},
 			#{user_key}	
 		)
 	</insert>
+<<<<<<< HEAD
 	<select id="loginUser" parameterType="UserVO" resultType="com.mvc.insta.vo.UserVO">
 		select * from sns_user where user_email=#{user_email} and user_pw=#{user_pw}
+=======
+	
+	
+	<select id="userList" resultType="UserVO">
+		select * from sns_user
+	</select>
+	
+	<select id="viewUser" resultType="UserVO">
+		select
+			user_email AS user_email,
+			user_name AS user_name,
+			user_rdate AS user_rdate
+		from sns_user
+		where user_email = #{user_email}
+	
+>>>>>>> 9ed9b3f539f9ae8e9373f755aabc1098d035faa8
 	</select>
 
 
