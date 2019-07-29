@@ -18,7 +18,7 @@
 <c:forEach var="list" items="${list }">
 
 <tr>
-	<td>${list.user_email }</td>
+	<td><a href="${path}/viewUser.do?user_email=${list.user_email }">${list.user_email }</a></td>
 	<td>${list.user_name }</td>
 	<td>${list.user_rdate }</td>
 </tr>

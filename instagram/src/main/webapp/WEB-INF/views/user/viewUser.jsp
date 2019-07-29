@@ -9,23 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border="1">
-<tr>
-	<th>이메일</th>
-	<th>이름</th>
-	<th>가입날짜</th>
-</tr>
-
-<tr>
-	<td>${vo.user_email }</td>
-	<td>${vo.user_name }</td>
-	<td>${vo.user_rdate }</td>
-</tr>
-
-
-
-
-</table>
+<input name="user_email" value="${vo.user_email }">
 
 </body>
 </html>

@@ -80,7 +80,7 @@ public class UserController {
 	}
 	
 	//회원 상세정보
-	@RequestMapping("/view.do")
+	@RequestMapping("/viewUser.do")
 	public String userView(String user_email, Model model) throws Exception {
 		model.addAttribute("vo", userService.viewUser(user_email));
 		
