@@ -12,11 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-=======
->>>>>>> 9ed9b3f539f9ae8e9373f755aabc1098d035faa8
+
 
 import com.mvc.insta.service.UserService;
 import com.mvc.insta.vo.UserVO;
@@ -39,10 +37,9 @@ public class UserController {
 	 */
 	//@RequestMapping(value = "/")
 	public String home(Model model) {
-<<<<<<< HEAD
-=======
+
 		model.addAttribute("userVO", new UserVO());
->>>>>>> 9ed9b3f539f9ae8e9373f755aabc1098d035faa8
+
 		return "user/signUpForm";
 	}
 	
@@ -65,7 +62,6 @@ public class UserController {
 	
 	//회원가입
 	@RequestMapping(value = "/signUp.do")
-<<<<<<< HEAD
 	public ModelAndView signUp(UserVO userVO) throws Exception {
 		System.out.println(userVO);
 		userService.insertUser(userVO);
@@ -92,7 +88,7 @@ public class UserController {
 			mav.addObject("resultMav","fail");
 		}
 		return mav;
-=======
+	}
 	public String MemberInit(@ModelAttribute UserVO userVO, BindingResult bindingResult, Model model) throws Exception {
     	new UserValidator().validate(userVO, bindingResult);
         
@@ -123,7 +119,6 @@ public class UserController {
 		logger.info("클릭한 이메일 : " + user_email);
 		
 		return "user/viewUser";
->>>>>>> 9ed9b3f539f9ae8e9373f755aabc1098d035faa8
 	}
 
 	
