@@ -18,11 +18,11 @@
 			#{user_key}	
 		)
 	</insert>
-<<<<<<< HEAD
+	
 	<select id="loginUser" parameterType="UserVO" resultType="com.mvc.insta.vo.UserVO">
 		select * from sns_user where user_email=#{user_email} and user_pw=#{user_pw}
-=======
 	
+	</select>
 	
 	<select id="userList" resultType="UserVO">
 		select * from sns_user
@@ -36,7 +36,6 @@
 		from sns_user
 		where user_email = #{user_email}
 	
->>>>>>> 9ed9b3f539f9ae8e9373f755aabc1098d035faa8
 	</select>
 
 
