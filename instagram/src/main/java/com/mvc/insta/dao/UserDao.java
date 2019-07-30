@@ -11,14 +11,7 @@ public interface UserDao {
 
 	public List<UserVO> userList() throws Exception;
 	public UserVO viewUser(String user_email) throws Exception;
-	
 
-
-	public UserVO loginUser(UserVO userVO) throws Exception;
-
-
-	public List<UserVO> userList() throws Exception;
-	public UserVO viewUser(String user_email) throws Exception;
 	
 
 }
