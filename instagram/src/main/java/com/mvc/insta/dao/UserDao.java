@@ -14,6 +14,9 @@ public interface UserDao {
 
 	public void delUser(UserVO userVO) throws Exception;
 
+	public int check_email(String user_email) throws Exception;
+
+
 	
 
 }

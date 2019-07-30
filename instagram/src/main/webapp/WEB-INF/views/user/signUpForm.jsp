@@ -4,12 +4,37 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <jsp:include page="../common/header.jsp"></jsp:include>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
 </head>
+<script>
+function check_email() {
+	var data = $("#user_email").val();
+	alert(data);
+	$.ajax({
+		url : "/check_email.do",
+		type : "post",
+		data : data,
+		success : function(data){
+			if(data == 0) {
+				$(".result .msg").text("사용가능");
+				$(".result .msg").attr("style","color:blue");
+			}else {
+				$(".result .msg").text("사용불가");
+				$(".result .msg").attr("style","color:red");
+			}
+		}
+		
+	}); //ajax
+};
+
+
+</script>
+
 
 
 <body class="main_Form">
@@ -19,16 +44,23 @@
 
             <form:form class="sign_Form" modelAttribute="userVO" action="/signUp.do" method="post">
               <form:input type="text" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL"/>
-              <form:errors cssStyle="color: red; font-size: 14px;" path="user_email" />
+              <form:errors cssStyle="color: red; font-size: 10px;" path="user_email" />
+             
+              <input type="button" class="btn btn-sm btn-secondary" value="중복확인" onclick="check_email();" />
+              
+              <p class="result">
+              	<span class="msg"></span>
+              </p>
               
               <form:input type="text" path="user_name" id="user_name" name="user_name" placeholder="사용자 이름"/>
-              <form:errors cssStyle="color: red; font-size: 14px;" path="user_name" />
+              <form:errors cssStyle="color: red; font-size: 10px;" path="user_name" />
               
               <form:input type="password" id="user_pw" path="user_pw" name="user_pw" placeholder="비밀번호"/>
-              <form:errors cssStyle="color: red; font-size: 14px;" path="user_pw" />
+              <form:errors cssStyle="color: red; font-size: 10px;" path="user_pw" />
               
-              <input type="password" id="user_check_pw" path="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
-              <form:errors cssStyle="color: red; font-size: 14px;" path="user_check_pw" />
+              <form:input type="password" id="user_check_pw" path="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
+              <form:errors cssStyle="color: red; font-size: 10px;" path="user_check_pw" />
+              
               <button>회원가입</button>
               
               <div class="hr-sect">또는</div>

@@ -40,4 +40,10 @@ public class UserServiceImpl implements UserService{
 		
 	}
 
+	@Override
+	public int check_email(String user_email) throws Exception {
+		int check_email =  userDao.check_email(user_email);
+		return check_email;
+	}
+
 }

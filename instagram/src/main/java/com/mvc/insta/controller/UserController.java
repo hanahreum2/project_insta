@@ -12,9 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -47,19 +50,7 @@ public class UserController {
 	public void signIn(HttpSession session) {	
 		
 	}
-	
-	//회원가입
-//	@RequestMapping(value = "/signUp.do")
-//	public ModelAndView signUp(UserVO userVO) throws Exception {
-//		System.out.println(userVO);
-//		userService.insertUser(userVO);
-//		ModelAndView mav = new ModelAndView();
-//		mav.setViewName("/user/signInForm");
-//		return mav;
-//		
-//	}
 
-	
 	@RequestMapping(value = "/signIn.do", method = RequestMethod.POST)
 	public ModelAndView signIn(UserVO userVO,HttpSession session) throws Exception {
 		System.out.println(userVO);
@@ -83,8 +74,7 @@ public class UserController {
 	@RequestMapping(value = "/signUp.do", method = RequestMethod.POST)
 	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
     	new UserValidator().validate(userVO, errors);
-        
-    	//validator 에러 있으면 이페이지로 이동
+        //validator 에러 있으면 이페이지로 이동
         if(errors.hasErrors()){ 
             return "user/signUpForm";  
         }
@@ -121,6 +111,17 @@ public class UserController {
 		
 		return "redirect:/listUser.do";
 	}
+	
+	
+	// email 중복 체크
+		@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
+		@ResponseBody
+		public int check_email(@RequestBody String input_email, UserVO userVO) throws Exception {
+			int check_email = userService.check_email(input_email);
+
+			return check_email;
+		}
+	
 	
 	
 

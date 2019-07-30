@@ -10,6 +10,7 @@ public interface UserService {
 	public List<UserVO> userList() throws Exception;
 	public UserVO viewUser(String user_email) throws Exception;
 	public void delUser(UserVO userVO) throws Exception;
+	public int check_email(String user_email) throws Exception;
 
 			
 	

@@ -43,4 +43,10 @@ public class UserDaoImpl implements UserDao{
 		
 	}
 
+	@Override
+	public int check_email(String user_email) throws Exception {
+		int check_email = sqlSession.selectOne(namespace+".check_email", user_email.replace("=", ""));
+		return check_email;
+	}
+
 }
