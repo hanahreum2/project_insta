@@ -115,7 +115,13 @@ public class UserController {
 	}
 
 	
-	
+	@RequestMapping("/delUser.do")
+	public String delUser(String user_email, Model model) throws Exception {
+		model.addAttribute("vo", userService.viewUser(user_email));
+		logger.info("클릭한 이메일 : " + user_email);
+		
+		return "user/viewUser";
+	}
 	
 	
 
