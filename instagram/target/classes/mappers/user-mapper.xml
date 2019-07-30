@@ -32,12 +32,16 @@
 	<select id="viewUser" resultType="UserVO">
 		select
 			user_email AS user_email,
-			user_name AS user_name,
-			user_rdate AS user_rdate
+			user_name AS user_name
 		from sns_user
 		where user_email = #{user_email}
 	
 	</select>
+	
+	<delete id="delUser" parameterType="UserVO">
+		delete from sns_user 
+		where user_name = #{user_name}
+	</delete>
 
 
 

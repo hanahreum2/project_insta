@@ -34,4 +34,10 @@ public class UserServiceImpl implements UserService{
 		return userDao.viewUser(user_email);
 	}
 
+	@Override
+	public void delUser(UserVO userVO) throws Exception {
+		userDao.delUser(userVO);
+		
+	}
+
 }

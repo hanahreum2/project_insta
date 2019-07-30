@@ -37,4 +37,10 @@ public class UserDaoImpl implements UserDao{
 		return sqlSession.selectOne(namespace+".viewUser", user_email);
 	}
 
+	@Override
+	public void delUser(UserVO userVO) throws Exception {
+		sqlSession.delete(namespace+".delUser", userVO); 
+		
+	}
+
 }

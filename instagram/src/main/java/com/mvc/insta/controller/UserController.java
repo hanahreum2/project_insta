@@ -40,9 +40,6 @@ public class UserController {
 	@RequestMapping(value = "/")
 	public String home(Model model) {
 		model.addAttribute("userVO", new UserVO());
-
-		model.addAttribute("userVO", new UserVO());
-
 		return "user/signUpForm";
 	}
 	
@@ -70,7 +67,7 @@ public class UserController {
 		System.out.println(userService.loginUser(userVO));
 		if(userService.loginUser(userVO) != null) {
 			System.out.println("로그인성공");
-			mav.setViewName("/user/timeLine");
+			mav.setViewName("/main/main");
 			session.setAttribute("login", userService.loginUser(userVO));
 			session.setMaxInactiveInterval(30*60); //아무것도 안하고 30분동안만 로그인 유지
 			//session.invalidate(); --> 로그아웃(세션삭제)
@@ -82,6 +79,8 @@ public class UserController {
 		}
 		return mav;
 	}
+	
+	@RequestMapping(value = "/signUp.do", method = RequestMethod.POST)
 	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
     	new UserValidator().validate(userVO, errors);
         
@@ -92,17 +91,17 @@ public class UserController {
 
         
         userService.insertUser(userVO);
-		return "user/signUpOk";
+		return "user/signInForm";
 	    
     }
 	
 	
 	//회원 전체 리스트
-//	@RequestMapping(value="/")
+	@RequestMapping(value="/listUser.do")
 	public String userList(Model model) throws Exception {
 		List<UserVO> list = userService.userList();
 		model.addAttribute("list", list);
-		return "user/signUpOk";
+		return "user/listUser";
 	}
 	
 	//회원 상세정보
@@ -116,11 +115,11 @@ public class UserController {
 
 	
 	@RequestMapping("/delUser.do")
-	public String delUser(String user_email, Model model) throws Exception {
-		model.addAttribute("vo", userService.viewUser(user_email));
-		logger.info("클릭한 이메일 : " + user_email);
+	public String delUser(UserVO userVO, HttpSession session) throws Exception {
+		userService.delUser(userVO);
+		session.invalidate();
 		
-		return "user/viewUser";
+		return "redirect:/listUser.do";
 	}
 	
 	

@@ -12,6 +12,8 @@ public interface UserDao {
 	public List<UserVO> userList() throws Exception;
 	public UserVO viewUser(String user_email) throws Exception;
 
+	public void delUser(UserVO userVO) throws Exception;
+
 	
 
 }
