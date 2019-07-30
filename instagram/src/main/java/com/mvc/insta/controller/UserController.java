@@ -13,6 +13,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+>>>>>>> bcc46bb4c996083c5bf8f663f777138e3226fa13
 
 import com.mvc.insta.service.UserService;
 import com.mvc.insta.vo.UserVO;
@@ -35,7 +41,13 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/")
 	public String home(Model model) {
+<<<<<<< HEAD
 		model.addAttribute("userVO", new UserVO());
+=======
+
+		model.addAttribute("userVO", new UserVO());
+
+>>>>>>> bcc46bb4c996083c5bf8f663f777138e3226fa13
 		return "user/signUpForm";
 	}
 	
@@ -58,8 +70,40 @@ public class UserController {
 	
 	//회원가입
 	@RequestMapping(value = "/signUp.do")
+<<<<<<< HEAD
 	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
     	new UserValidator().validate(userVO, errors);
+=======
+	public ModelAndView signUp(UserVO userVO) throws Exception {
+		System.out.println(userVO);
+		userService.insertUser(userVO);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/user/signInForm");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/signIn.do", method = RequestMethod.POST)
+	public ModelAndView signIn(UserVO userVO,HttpSession session) throws Exception {
+		System.out.println(userVO);
+		ModelAndView mav = new ModelAndView();
+		System.out.println(userService.loginUser(userVO));
+		if(userService.loginUser(userVO) != null) {
+			System.out.println("로그인성공");
+			mav.setViewName("/user/timeLine");
+			session.setAttribute("login", userService.loginUser(userVO));
+			session.setMaxInactiveInterval(30*60); //아무것도 안하고 30분동안만 로그인 유지
+			//session.invalidate(); --> 로그아웃(세션삭제)
+		}
+		else {
+			System.out.println("로그인 실패");
+			mav.setViewName("/user/signInForm");
+			mav.addObject("resultMav","fail");
+		}
+		return mav;
+	}
+	public String MemberInit(@ModelAttribute UserVO userVO, BindingResult bindingResult, Model model) throws Exception {
+    	new UserValidator().validate(userVO, bindingResult);
+>>>>>>> bcc46bb4c996083c5bf8f663f777138e3226fa13
         
     	//validator 에러 있으면 이페이지로 이동
         if(errors.hasErrors()){ 

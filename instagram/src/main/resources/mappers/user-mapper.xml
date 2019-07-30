@@ -18,9 +18,15 @@
 			#{user_key}	
 		)
 	</insert>
+<<<<<<< HEAD
 	
 	<select id="loginUser" parameterType="UserVO" resultType="com.mvc.insta.vo.UserVO">
 		select * from sns_user where user_email=#{user_email} and user_pw=#{user_pw}
+=======
+	<select id="loginUser" parameterType="UserVO" resultType="com.mvc.insta.vo.UserVO">
+		select * from sns_user where user_email=#{user_email} and user_pw=#{user_pw}
+	</select>
+>>>>>>> bcc46bb4c996083c5bf8f663f777138e3226fa13
 	
 	</select>
 	
@@ -37,6 +43,8 @@
 		where user_email = #{user_email}
 	
 	</select>
+
+
 
 
 </mapper>
