@@ -119,7 +119,7 @@ public class UserController {
 	}
 	
 	
-<<<<<<< HEAD
+
 	// email �ߺ� üũ
 		@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
 		@ResponseBody
@@ -128,15 +128,14 @@ public class UserController {
 
 			return check_email;
 		}
-=======
-	// email �ߺ� üũ
+	// email �ߺ� üũ
 	@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
 	@ResponseBody
 	public int check_email(@RequestBody String input_email) throws Exception {
 		int check_email = userService.check_email(input_email);
 		return check_email;
 	}
->>>>>>> e62e9d7ab6ea08186fddc21552079281fc1a0c79
+
 	
 	
 	
