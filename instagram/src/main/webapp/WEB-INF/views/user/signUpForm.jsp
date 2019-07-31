@@ -23,25 +23,27 @@
             <img src="${pageContext.request.contextPath}/resources/img/title.png" alt="instagram title img">
 
             <form:form class="sign_Form" modelAttribute="userVO" action="/signUp.do" method="post">
-              <form:input type="text" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL"/>
+              <form:input type="text" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL" />
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_email" />
              
-              <input type="button" value="중복확인" onclick="check_email();" />
+              <button type="button" value="중복확인" onclick="check_email();" ></button>
               
               <p class="result">
               	<span class="msg"></span>
               </p>
               
-              <form:input type="text" path="user_name" id="user_name" name="user_name" placeholder="사용자 이름"/>
+              <form:input type="text" path="user_name" id="user_name" name="user_name" placeholder="사용자 이름" />
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_name" />
               
               <form:input type="password" id="user_pw" path="user_pw" name="user_pw" placeholder="비밀번호"/>
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_pw" />
               
+              <div id="result1"></div>
+              
               <form:input type="password" id="user_check_pw" path="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_check_pw" />
               
-              <button>회원가입</button>
+              <button id="submit_btn">회원가입</button>
               
               <div class="hr-sect">또는</div>
 

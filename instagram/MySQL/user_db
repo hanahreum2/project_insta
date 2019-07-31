@@ -5,6 +5,6 @@ CREATE TABLE `sns_user` (
 	`user_phone` VARCHAR(50) NULL DEFAULT NULL,
 	`user_rdate` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
 	`user_img` VARCHAR(500) NULL DEFAULT NULL,
-	`user_key` VARCHAR(50) NULL DEFAULT NULL
-)
-;
+	`user_key` VARCHAR(50) NULL DEFAULT NULL,
+	PRIMARY KEY (`user_email`)
+);

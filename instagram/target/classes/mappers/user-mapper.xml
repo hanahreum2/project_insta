@@ -43,7 +43,7 @@
 		where user_name = #{user_name}
 	</delete>
 	
-	<select id="check_email" parameterType="String" resultType="integer">
+	<select id="check_email" parameterType="String" resultType="int">
 		select count(*) from sns_user where user_email = #{user_email}
 	
 	</select>
