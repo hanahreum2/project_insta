@@ -10,7 +10,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/resources/css/main.css?ver=1" rel="stylesheet" type="text/css">
+<link href="/resources/css/signUpForm.css?ver=1" rel="stylesheet" type="text/css">
 </head>
 
 
@@ -55,7 +56,6 @@
         </div>
         
         
-        <!-- 커밋ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ -->
 
 </body>
 </html>

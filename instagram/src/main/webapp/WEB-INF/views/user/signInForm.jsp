@@ -32,7 +32,7 @@
               
               <p id="forgot_PW" style="text-align: center;"><a href="#">비밀번호를 잊으셨나요?</a></p>
               <div class="hr-sect"></div>
-              <p id="signUp_signIn" style="text-align: center;">계정이 없으신가요? <a href="/user/signUpForm">가입하기</a></p>
+              <p id="signUp_signIn" style="text-align: center;">계정이 없으신가요? <a href="/">가입하기</a></p>
             </form>
           </div>
         </div>
