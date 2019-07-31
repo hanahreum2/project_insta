@@ -79,7 +79,6 @@ public class UserController {
             return "user/signUpForm";  
         }
 
-        
         userService.insertUser(userVO);
 		return "user/signInForm";
 	    
@@ -114,18 +113,16 @@ public class UserController {
 	
 	
 	// email 중복 체크
-		@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
-		@ResponseBody
-		public int check_email(@RequestBody String input_email, UserVO userVO) throws Exception {
-			int check_email = userService.check_email(input_email);
-
-			return check_email;
-		}
+	@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
+	@ResponseBody
+	public int check_email(@RequestBody String input_email) throws Exception {
+		int check_email = userService.check_email(input_email);
+		return check_email;
+	}
 	
 	
 	
 
-	//test test
 	
 	
 	
