@@ -6,34 +6,13 @@
 <head>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <jsp:include page="../common/header.jsp"></jsp:include>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/signUpForm.js"></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" type="text/css">
 </head>
-<script>
-function check_email() {
-	var data = $("#user_email").val();
-	alert(data);
-	$.ajax({
-		url : "/check_email.do",
-		type : "post",
-		data : data,
-		success : function(data){
-			if(data == 0) {
-				$(".result .msg").text("사용가능");
-				$(".result .msg").attr("style","color:blue");
-			}else {
-				$(".result .msg").text("사용불가");
-				$(".result .msg").attr("style","color:red");
-			}
-		}
-		
-	}); //ajax
-};
 
-
-</script>
 
 
 
@@ -46,7 +25,7 @@ function check_email() {
               <form:input type="text" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL"/>
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_email" />
              
-              <input type="button" class="btn btn-sm btn-secondary" value="중복확인" onclick="check_email();" />
+              <input type="button" value="중복확인" onclick="check_email();" />
               
               <p class="result">
               	<span class="msg"></span>

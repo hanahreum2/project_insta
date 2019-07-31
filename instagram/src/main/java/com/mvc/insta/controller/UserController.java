@@ -103,7 +103,7 @@ public class UserController {
 		return "user/viewUser";
 	}
 
-	
+	//회원정보 삭제
 	@RequestMapping("/delUser.do")
 	public String delUser(UserVO userVO, HttpSession session) throws Exception {
 		userService.delUser(userVO);
