@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+.header-body, .horizontal-menu {
+margin: 0;
+padding: 0;
+background-color: #FFFFFF;
+margin-bottom: 30px;
+
+min-width:1000px;   
+}
+.header-list {
+list-style-type: none;
+}
+
+.header-a {
+text-decoration: none;
+color: inherit;
+}
+
+/* Design Area */
+.header-body {
+text-align: center;
+}
+
+.horizontal-menu {
+display: inline-flex;
+overflow: hidden;
+background: white;
+border-bottom: #b3b3b3;
+
+width: 80%;
+margin-left:8%;
+margin-right:8%;
+}
+
+#header-logo{
+margin-top:5px; 
+margin-right: 180px; 
+margin-left: 30px;
+}
+
+#header-search{
+background-image : url('/resource/img/header/search.png'); 
+background-repeat: no-repeat;   
+background-position:8%; 
+text-align: center;
+height:23px; 
+width: 200px; 
+margin-top: 15px; 
+margin-right: 250px;
+border: 1px solid lightgray; 
+border-radius: 4px;
+}
+
+#header-img{
+margin-top: 17px;
+margin-right: 20px;
+}

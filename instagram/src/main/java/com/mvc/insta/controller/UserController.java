@@ -52,40 +52,47 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/signIn.do", method = RequestMethod.POST)
-	public ModelAndView signIn(UserVO userVO,HttpSession session) throws Exception {
+	public ModelAndView signIn(UserVO userVO, HttpSession session) throws Exception {
 		System.out.println(userVO);
 		ModelAndView mav = new ModelAndView();
 		System.out.println(userService.loginUser(userVO));
 		if(userService.loginUser(userVO) != null) {
-			System.out.println("·Î±×ÀÎ¼º°ø");
+			System.out.println("å ì‹¸ê¹ì˜™å ì‹¸ì‡½ì˜™å ì™ì˜™");
 			mav.setViewName("/main/main");
 			session.setAttribute("login", userService.loginUser(userVO));
-			session.setMaxInactiveInterval(30*60); //¾Æ¹«°Íµµ ¾ÈÇÏ°í 30ºĞµ¿¾È¸¸ ·Î±×ÀÎ À¯Áö
-			//session.invalidate(); --> ·Î±×¾Æ¿ô(¼¼¼Ç»èÁ¦)
+			session.setMaxInactiveInterval(30*60); //å ì‹£ë±„ì˜™å ì‹¶ë“¸ì˜™ å ì™ì˜™å ì‹¹ê³¤ì˜™ 30å ì‹»ë“¸ì˜™å ì‹«ëªŒì˜™ å ì‹¸ê¹ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™
 		}
 		else {
-			System.out.println("·Î±×ÀÎ ½ÇÆĞ");
+			System.out.println("å ì‹¸ê¹ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™");
 			mav.setViewName("/user/signInForm");
 			mav.addObject("resultMav","fail");
 		}
 		return mav;
 	}
 	
+	@RequestMapping(value = "/signOut.do", method = RequestMethod.GET)
+	public String signOut(UserVO userVO, HttpSession session) throws Exception {
+		System.out.println(userVO);
+		System.out.println("æ¿¡ì’“ë ‡ï¿½ë¸˜ï¿½ì");
+		session.invalidate(); // ï¿½ì £å«„ï¿½
+		
+		return "user/signInForm";
+	}
+	
 	@RequestMapping(value = "/signUp.do", method = RequestMethod.POST)
 	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
     	new UserValidator().validate(userVO, errors);
-        //validator ¿¡·¯ ÀÖÀ¸¸é ÀÌÆäÀÌÁö·Î ÀÌµ¿
+        //validator å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì‹±ë“¸ì˜™
         if(errors.hasErrors()){ 
             return "user/signUpForm";  
         }
 
         userService.insertUser(userVO);
 		return "user/signInForm";
-	    
     }
 	
 	
-	//È¸¿ø ÀüÃ¼ ¸®½ºÆ®
+	//íšŒå ì™ì˜™ å ì™ì˜™ì²´ å ì™ì˜™å ì™ì˜™íŠ¸
 	@RequestMapping(value="/listUser.do")
 	public String userList(Model model) throws Exception {
 		List<UserVO> list = userService.userList();
@@ -93,16 +100,16 @@ public class UserController {
 		return "user/listUser";
 	}
 	
-	//È¸¿ø »ó¼¼Á¤º¸
+	//íšŒå ì™ì˜™ å ì™ì˜™å ì™ì˜™å ì™ì˜™
 	@RequestMapping("/viewUser.do")
 	public String userView(String user_email, Model model) throws Exception {
 		model.addAttribute("vo", userService.viewUser(user_email));
-		logger.info("Å¬¸¯ÇÑ ÀÌ¸ŞÀÏ : " + user_email);
+		logger.info("í´å ì™ì˜™å ì™ì˜™ å ì‹±ëªŒì˜™å ì™ì˜™ : " + user_email);
 		
 		return "user/viewUser";
 	}
 
-	//È¸¿øÁ¤º¸ »èÁ¦
+	//íšŒå ì™ì˜™å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ì™ì˜™
 	@RequestMapping("/delUser.do")
 	public String delUser(UserVO userVO, HttpSession session) throws Exception {
 		userService.delUser(userVO);
@@ -112,13 +119,14 @@ public class UserController {
 	}
 	
 	
-	// email Áßº¹ Ã¼Å©
+	// email ì¤‘ë³µ ì²´í¬
 	@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
 	@ResponseBody
 	public int check_email(@RequestBody String input_email) throws Exception {
 		int check_email = userService.check_email(input_email);
 		return check_email;
 	}
+
 	
 	
 	

@@ -1,26 +1,28 @@
     <style>
         @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+
         .main_Page {
-        width: 360px;
+        width: 260px;
         padding: 2% 0 0 0;
-        margin: auto;
+        margin: auto 40px;
+        border-top: 2px solid #E6E6E6;
+
         }
         .form {
         position: relative;
         z-index: 1;
-        background: #FFFFFF;
+        background: #fff;
         max-width: 360px;
-        margin: 0 auto 100px;
+        margin: 0 auto 150px;
         padding: 45px;
         text-align: center;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
         }
         .form input {   
         font-family: "Roboto", sans-serif;
         outline: 0;
         height: 0.5%;
-        background: #fafafa;
+        background: #fff;
         width: 100%;
         border: 1px solid #EFEFEF;
         margin: 0 0 15px;
@@ -92,7 +94,7 @@
         color: #EF3B3A;
         }
         .sign_Form {
-        background: #FAFAFA; /* fallback for old browsers */
+        background: #fff; /* fallback for old browsers */
         font-family: "Roboto", sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;      
