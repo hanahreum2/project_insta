@@ -32,13 +32,20 @@
               	<span class="msg"></span>
               </p>
               
-              <form:input type="text" path="user_name" id="user_name" name="user_name" placeholder="사용자 이름" />
+              <form:input type="text" path="user_name" id="user_name" name="user_name" placeholder="사용자 이름" style="ime-mode:disabled;"/>
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_name" />
+              <p class="result2">
+              	<span class="msg2"></span>
+              </p>
               
               <form:input type="password" id="user_pw" path="user_pw" name="user_pw" placeholder="비밀번호"/>
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_pw" />
               
-              <div id="result1"></div>
+              <p class="result1">
+              	<span class="msg1"></span>
+              </p>
+              
+             <!--  <div id="result1"></div> -->
               
               <form:input type="password" id="user_check_pw" path="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_check_pw" />

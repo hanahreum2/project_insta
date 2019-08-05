@@ -57,13 +57,13 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(userService.loginUser(userVO));
 		if(userService.loginUser(userVO) != null) {
-			System.out.println("�α��μ���");
+			System.out.println("占싸깍옙占싸쇽옙占쏙옙");
 			mav.setViewName("/main/main");
 			session.setAttribute("login", userService.loginUser(userVO));
-			session.setMaxInactiveInterval(30*60); //�ƹ��͵� ���ϰ� 30�е��ȸ� �α��� ����
+			session.setMaxInactiveInterval(30*60); //占싣뱄옙占싶듸옙 占쏙옙占싹곤옙 30占싻듸옙占싫몌옙 占싸깍옙占쏙옙 占쏙옙占쏙옙
 		}
 		else {
-			System.out.println("�α��� ����");
+			System.out.println("占싸깍옙占쏙옙 占쏙옙占쏙옙");
 			mav.setViewName("/user/signInForm");
 			mav.addObject("resultMav","fail");
 		}
@@ -73,8 +73,8 @@ public class UserController {
 	@RequestMapping(value = "/signOut.do", method = RequestMethod.GET)
 	public String signOut(UserVO userVO, HttpSession session) throws Exception {
 		System.out.println(userVO);
-		System.out.println("로그아웃");
-		session.invalidate(); // 제거
+		System.out.println("濡쒓렇�븘�썐");
+		session.invalidate(); // �젣嫄�
 		
 		return "user/signInForm";
 	}
@@ -82,7 +82,7 @@ public class UserController {
 	@RequestMapping(value = "/signUp.do", method = RequestMethod.POST)
 	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
     	new UserValidator().validate(userVO, errors);
-        //validator ���� ������ ���������� �̵�
+        //validator 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싱듸옙
         if(errors.hasErrors()){ 
             return "user/signUpForm";  
         }
@@ -92,7 +92,7 @@ public class UserController {
     }
 	
 	
-	//ȸ�� ��ü ����Ʈ
+	//회占쏙옙 占쏙옙체 占쏙옙占쏙옙트
 	@RequestMapping(value="/listUser.do")
 	public String userList(Model model) throws Exception {
 		List<UserVO> list = userService.userList();
@@ -100,16 +100,16 @@ public class UserController {
 		return "user/listUser";
 	}
 	
-	//ȸ�� ������
+	//회占쏙옙 占쏙옙占쏙옙占쏙옙
 	@RequestMapping("/viewUser.do")
 	public String userView(String user_email, Model model) throws Exception {
 		model.addAttribute("vo", userService.viewUser(user_email));
-		logger.info("Ŭ���� �̸��� : " + user_email);
+		logger.info("클占쏙옙占쏙옙 占싱몌옙占쏙옙 : " + user_email);
 		
 		return "user/viewUser";
 	}
 
-	//ȸ������ ����
+	//회占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping("/delUser.do")
 	public String delUser(UserVO userVO, HttpSession session) throws Exception {
 		userService.delUser(userVO);
@@ -119,22 +119,25 @@ public class UserController {
 	}
 	
 	
-
-	// email �ߺ� üũ
-		@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
-		@ResponseBody
-		public int check_email(@RequestBody String input_email, UserVO userVO) throws Exception {
-			int check_email = userService.check_email(input_email);
-
-			return check_email;
-		}
-	// email �ߺ� üũ
+	// email 占쌩븝옙 체크
 	@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
 	@ResponseBody
 	public int check_email(@RequestBody String input_email) throws Exception {
 		int check_email = userService.check_email(input_email);
 		return check_email;
 	}
+	
+	
+		
+	@RequestMapping(value = "/updateUser.do", method = RequestMethod.POST)
+	public String update(UserVO userVO, HttpSession session) throws Exception {
+		userService.updateUser(userVO);
+		session.setAttribute("user", userVO);
+		return "main/main";
+		
+	}
+		
+		
 
 	
 	

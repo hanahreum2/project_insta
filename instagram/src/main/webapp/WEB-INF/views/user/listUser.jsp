@@ -23,10 +23,14 @@
 
 	<td><a href="${path}/viewUser.do?user_email=${list.user_email }">${list.user_email }</a></td>
 	<td><a href="${path}/delUser.do?user_name=${list.user_name }">${list.user_name }</a></td>
+	
 
 </tr>
 </c:forEach>
 
 </table>
+	
+	
+	
 </body>
 </html>

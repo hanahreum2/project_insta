@@ -16,6 +16,8 @@ public interface UserDao {
 
 	public int check_email(String user_email) throws Exception;
 
+	public void updateUser(UserVO userVO) throws Exception;
+
 
 	
 

@@ -46,4 +46,10 @@ public class UserServiceImpl implements UserService{
 		return check_email;
 	}
 
+	@Override
+	public void updateUser(UserVO userVO) throws Exception {
+		userDao.updateUser(userVO);
+		
+	}
+
 }

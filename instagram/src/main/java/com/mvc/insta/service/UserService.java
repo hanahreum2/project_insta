@@ -11,6 +11,7 @@ public interface UserService {
 	public UserVO viewUser(String user_email) throws Exception;
 	public void delUser(UserVO userVO) throws Exception;
 	public int check_email(String user_email) throws Exception;
+	public void updateUser(UserVO userVO) throws Exception;
 
 			
 	

@@ -10,7 +10,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input name="user_email" value="${vo.user_email }"><p>
-<input name="user_name" value="${vo.user_name }">
+<form action="<%=request.getContextPath()%>/updateUser.do"method="POST">
+<input name="user_email" value="${vo.user_email }" readonly="readonly">
+<p><input name="user_name" value="${vo.user_name }" />
+
+<input type="submit" value="수정">
+</form>
 </body>
 </html>

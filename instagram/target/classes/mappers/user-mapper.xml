@@ -48,6 +48,12 @@
 	
 	</select>
 
+	<update id="updateUser" parameterType="UserVO">
+	update sns_user
+	set user_name = #{user_name}
+	where user_email = #{user_email}
+	
+	</update>
 
 
 

@@ -49,4 +49,10 @@ public class UserDaoImpl implements UserDao{
 		return check_email;
 	}
 
+	@Override
+	public void updateUser(UserVO userVO) throws Exception {
+		sqlSession.update(namespace + ".updateUser", userVO); 
+		
+	}
+
 }
