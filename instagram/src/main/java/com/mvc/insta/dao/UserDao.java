@@ -10,11 +10,11 @@ public interface UserDao {
 	public UserVO loginUser(UserVO userVO) throws Exception;
 
 	public List<UserVO> userList() throws Exception;
-	public UserVO viewUser(String user_email) throws Exception;
+	public UserVO viewUser(UserVO userVO) throws Exception;
 
 	public void delUser(UserVO userVO) throws Exception;
 
-	public int check_email(String user_email) throws Exception;
+	public int check_id(String user_id) throws Exception;
 
 	public void updateUser(UserVO userVO) throws Exception;
 

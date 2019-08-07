@@ -46,6 +46,12 @@ public class UserController {
 		return "user/signUpForm";
 	}
 	
+	@RequestMapping(value = "/main")
+	public String main(Model model) {
+		model.addAttribute("userVO", new UserVO());
+		return "main/main";
+	}
+	
 	@RequestMapping(value = "/user/signInForm")
 	public void signIn(HttpSession session) {	
 		
@@ -74,7 +80,7 @@ public class UserController {
 	public String signOut(UserVO userVO, HttpSession session) throws Exception {
 		System.out.println(userVO);
 		System.out.println("濡쒓렇�븘�썐");
-		session.invalidate(); // �젣嫄�
+		session.invalidate(); 
 		
 		return "user/signInForm";
 	}
@@ -82,7 +88,6 @@ public class UserController {
 	@RequestMapping(value = "/signUp.do", method = RequestMethod.POST)
 	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
     	new UserValidator().validate(userVO, errors);
-        //validator 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占싱듸옙
         if(errors.hasErrors()){ 
             return "user/signUpForm";  
         }
@@ -100,11 +105,12 @@ public class UserController {
 		return "user/listUser";
 	}
 	
-	//회占쏙옙 占쏙옙占쏙옙占쏙옙
-	@RequestMapping("/viewUser.do")
-	public String userView(String user_email, Model model) throws Exception {
-		model.addAttribute("vo", userService.viewUser(user_email));
-		logger.info("클占쏙옙占쏙옙 占싱몌옙占쏙옙 : " + user_email);
+	
+	@RequestMapping(value="/viewUser.do")
+	public String userView(UserVO userVO, Model model) throws Exception {
+		UserVO userVO1 = userService.viewUser(userVO);
+		model.addAttribute("user", userVO1);
+		System.out.println(userVO1.getUser_email());
 		
 		return "user/viewUser";
 	}
@@ -120,11 +126,11 @@ public class UserController {
 	
 	
 	// email 占쌩븝옙 체크
-	@RequestMapping(value = "/check_email.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/check_id.do", method = RequestMethod.POST)
 	@ResponseBody
-	public int check_email(@RequestBody String input_email) throws Exception {
-		int check_email = userService.check_email(input_email);
-		return check_email;
+	public int check_email(@RequestBody String input_id) throws Exception {
+		int check_id = userService.check_id(input_id);
+		return check_id;
 	}
 	
 	

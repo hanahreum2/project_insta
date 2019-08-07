@@ -13,14 +13,14 @@
 <h1>회원목록</h1>
 <table border="1">
 <tr>
-
+	<th>id</th>	
 	<th>이메일</th>
 	<th>이름</th>
 </tr>
 
 <c:forEach var="list" items="${list }">
 <tr>
-
+	<td>${list.user_id }</td>
 	<td><a href="${path}/viewUser.do?user_email=${list.user_email }">${list.user_email }</a></td>
 	<td><a href="${path}/delUser.do?user_name=${list.user_name }">${list.user_name }</a></td>
 	

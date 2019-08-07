@@ -3,6 +3,7 @@ package com.mvc.insta.vo;
 import java.util.Date;
 
 public class UserVO {
+	private String user_id;
 	private String user_email;
 	private String user_name;
 	private String user_pw;
@@ -11,6 +12,14 @@ public class UserVO {
 	private Date user_rdate;
 	private String user_img;
 	private String user_key;
+	
+	
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 	public String getUser_email() {
 		return user_email;
 	}
@@ -59,12 +68,14 @@ public class UserVO {
 	public void setUser_key(String user_key) {
 		this.user_key = user_key;
 	}
+	
 	@Override
 	public String toString() {
-		return "UserVO [user_email=" + user_email + ", user_name=" + user_name + ", user_pw=" + user_pw
-				+ ", user_check_pw=" + user_check_pw + ", user_phone=" + user_phone + ", user_rdate=" + user_rdate
-				+ ", user_img=" + user_img + ", user_key=" + user_key + "]";
+		return "UserVO [user_id=" + user_id + ", user_email=" + user_email + ", user_name=" + user_name + ", user_pw="
+				+ user_pw + ", user_check_pw=" + user_check_pw + ", user_phone=" + user_phone + ", user_rdate="
+				+ user_rdate + ", user_img=" + user_img + ", user_key=" + user_key + "]";
 	}
+	
 	
 	
 }
