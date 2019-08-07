@@ -16,7 +16,7 @@
     <ul class="horizontal-menu">
         <li class="header-list"><a class="header-a" href="#"><img id="header-logo" src="/resources/img/header/header-logo.png"></a></li>
         <li class="header-list"><a class="header-a" href="#"><input type="text" id="header-search" placeholder="검색"></a></li>
-        <li class="header-list"><a class="header-a" href="/main"><img id="header-img" src="/resources/img/header/notification.png"></a></li>
+        <li class="header-list"><a class="header-a" href="board/write"><img id="header-img" src="/resources/img/header/notification.png"></a></li>
         <li class="header-list"><a class="header-a" href="#"><img id="header-img" src="/resources/img/header/like.png"></a></li>
         <li class="header-list"><a class="header-a" href="/listUser.do"><img id="header-img" src="/resources/img/header/user.png"></a></li>
         
