@@ -1,24 +1,23 @@
-function check_email() {
-	
-	var email_data = $("#user_email").val();
-	
-	var pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+function check_id() {
+	var input_id = $("#user_id").val();
+	console.log(input_id);
+	var pattern = /^[a-z0-9]{4,12}$/;
 	
 	//이메일 형식이 잘못됐을경우
 
-	if(pattern.test(email_data) == false || email_data ==""){
+	if(pattern.test(input_id) == false || input_id ==""){
 		$(".result .msg").text("형식이 올바르지 않습니다");
 		$(".result .msg").attr("style","color:red");
-		$("#user_email").focus();
+		$("#user_id").focus();
 		$("#submit_btn").attr('disabled', true);
 		return false;
 	
 	}
 
 	$.ajax({
-		url : "/check_email.do",
+		url : "/check_id.do",
 		type : "post",
-		data : email_data,
+		data : input_id,
 		dataType : "json",
 		contentType: "application/json; charset=UTF-8",
 		success : function(data){			
@@ -28,16 +27,16 @@ function check_email() {
 				$("#submit_btn").attr('disabled', false);
 			
 			}else {
-				$(".result .msg").text("중복 이메일");
+				$(".result .msg").text("사용중인 ID입니다.");
 				$(".result .msg").attr("style","color:red");
-				$("#user_email").focus();
+				$("#user_id").focus();
 				$("#submit_btn").attr('disabled', true);
 			}
 		}
 		
 	}); //ajax
-	
 };
+	
 
 $(document).ready(function(){
 	$("#user_name").keyup(function(event){

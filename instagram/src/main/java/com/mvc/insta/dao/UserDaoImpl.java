@@ -33,8 +33,9 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public UserVO viewUser(String user_email) throws Exception {
-		return sqlSession.selectOne(namespace+".viewUser", user_email);
+	public UserVO viewUser(UserVO userVO) throws Exception {
+		System.out.println("user DAO IMPL" + userVO);
+		return sqlSession.selectOne(namespace+".viewUser", userVO);
 	}
 
 	@Override
@@ -44,9 +45,9 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public int check_email(String user_email) throws Exception {
-		int check_email = sqlSession.selectOne(namespace+".check_email", user_email);
-		return check_email;
+	public int check_id(String user_id) throws Exception {
+		int check_id = sqlSession.selectOne(namespace+".check_id", user_id);
+		return check_id;
 	}
 
 	@Override
