@@ -34,7 +34,6 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public UserVO viewUser(UserVO userVO) throws Exception {
-		System.out.println("user DAO IMPL" + userVO);
 		return sqlSession.selectOne(namespace+".viewUser", userVO);
 	}
 

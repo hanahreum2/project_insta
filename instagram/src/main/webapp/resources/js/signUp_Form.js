@@ -83,3 +83,25 @@ $(document).ready(function(){
 
 	});
 });
+
+$(document).ready(function(){
+	$("#user_email").keydown(function(event){
+		var input_email =$(this).val();
+		var check_email = /^[A-Za-z0-9]{4,12}$/;
+
+
+		if(!check_pw.test(input_pw) || input_pw==""){
+			$(".result1 .msg1").text("영어랑 숫자랑 3~10");
+			$(".result1 .msg1").attr("style","color:red");
+			$("#user_pw").focus();
+			$("#submit_btn").attr('disabled', true);
+		
+		}else {
+			$(".result1 .msg1").text("");
+			$("#submit_btn").attr('disabled', false);
+			
+		}
+		
+
+	});
+});

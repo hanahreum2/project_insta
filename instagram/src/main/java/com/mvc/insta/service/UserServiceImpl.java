@@ -31,7 +31,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public UserVO viewUser(UserVO userVO) throws Exception {
-		System.out.println("service" + userVO);
 		return userDao.viewUser(userVO);
 	}
 

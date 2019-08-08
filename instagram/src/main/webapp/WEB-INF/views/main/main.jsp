@@ -288,10 +288,10 @@ text-align: center;
 			  </div><!--/ dropdown -->
 			  <div class="media m-0">
 			   <div class="d-flex mr-3">
-				<a href=""><img class="img-fluid rounded-circle" src="resources/img/basic.jpg"></a>
+				<img class="img-fluid rounded-circle" src="resources/img/basic.jpg">
 			   </div>
 			   <div class="media-body">
-			    <p class="m-0">${login.user_id}</p>
+			    <p class="m-0">${user.user_id}</p>
 				<!--  <small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>-->
 				<small><span><i class="icon ion-md-time"></i> 10 hours ago</span></small>
 			   </div>

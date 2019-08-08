@@ -32,7 +32,7 @@
 	
 	<select id="viewUser" resultType="UserVO" parameterType="UserVO">
 		select * from sns_user
-		where user_email = #{user_email}
+		where user_id = #{user_id}
 	
 	</select>
 	
@@ -47,9 +47,11 @@
 	</select>
 
 	<update id="updateUser" parameterType="UserVO">
-	update sns_user
-	set user_name = #{user_name}
-	where user_email = #{user_email}
+		update sns_user 
+		set 
+			user_name = #{user_name}, user_email = #{user_email}
+		where 
+			user_id = #{user_id}
 	
 	</update>
 

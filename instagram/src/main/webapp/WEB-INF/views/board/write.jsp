@@ -13,7 +13,7 @@ var sel_file;
 
 
 $(document).ready(function(){
-	$("#input_img").on("change", handleImgFileSelect);
+	$("#file").on("change", handleImgFileSelect);
 	
 });
 
@@ -43,9 +43,9 @@ function handleImgFileSelect(e){
 
 <h1>글/사진 올리기</h1>
 
-<form action="/img_write.do">
+<form action="/fileUpload" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
 <div>
-	<input type="file" name="input_img" id="input_img">
+	<input type="file" name="file" id="file">
 </div>
 
 <div>
@@ -55,8 +55,15 @@ function handleImgFileSelect(e){
 
 </div>
 
-<input type="text" name="test_text" id="test_text">
-<button type="button" id="btn" onclick="btn_click();">전송</button>
-</form>
+이름 : <input type="text" name="name" id="cmd" value="namevla"><br>
+<input type="submit" name="업로드" value="제출"><br>
+
+        
+        
+        
+    </form>
+
+
+
 </body>
 </html>
