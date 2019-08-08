@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+.myPage{ background: #FAFAFA; padding-left: 19%; padding-right: 19%; padding-top: 8.9%; }
+.profile-container{ display: flex; margin: 0 auto; width: 1000px; height: 190px; font-family: 'Noto Sans KR', sans-serif; padding-left: 20px;}
+
+.nav-profile-img{ padding-right: 8%; }
+#nav-profile-text1-edit{ padding-top: 3px; }
+
+.nav-profile-text{ padding-top: 20px;  }
+
+.nav-profile-text1{ font-size: 25px; }
+
+.nav-profile-text2{ display: inline; padding-top: 40px;}
+a:link{ color: black; text-decoration: none; }
+a:hover{ color: black; text-decoration: none; }
+a:visited{ color: black; text-decoration: none; }
+.nav-profile-text2-postcount{ display: inline; padding-right: 35px; }
+.nav-profile-text2-follower{ display: inline; padding-right: 35px;}
+.nav-profile-text2-follow{ display: inline; padding-right: 35px;}
+.nav-profile-text2-block{ display: inline; padding-right: 35px;}
+
+.nav-profile-text3{ padding-top: 20px; }
+
+.nav-profile-button{ border: 1px solid #DBDBDB; border-radius: 5px; background-color: #FAFAFA; height: 30px; margin-left: 10px; margin-right: 10px; font-size: 10pt; }
+
+.middle-menu-button{ font-family: 'Noto Sans KR', sans-serif; text-align: center; border-top: 0.5px solid lightgray; margin-bottom: 30px; }
+#middle-menu-button-postview{ background: url(post-button2.png) no-repeat; margin-top:20px; width: 60px; height: 19px; margin-right: 40px; opacity: 0.5;  border: 0; outline: 0;}
+#middle-menu-button-postview:active{ opacity: 1; }
+#middle-menu-button-postupload{ background: url(upload-button2.png) no-repeat; width: 60px; height: 19px;  opacity: 0.5;  border: 0; outline: 0;}
+#middle-menu-button-postupload:active{ opacity: 1;}
+
+.col-md-4{ font-size: 15pt; padding-bottom: 20px; }
+.col-md-4:hover{ opacity: 0.5; filter: alpha(opacity=100); }

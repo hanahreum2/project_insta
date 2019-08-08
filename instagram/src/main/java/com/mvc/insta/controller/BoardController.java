@@ -21,11 +21,19 @@ public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	
+	//글 작성
 	@RequestMapping(value = "board/write", method = RequestMethod.GET)
 	public void write() {
 		
 		
 	}
+	
+	//글 조회
+	
+	//글 수정
+	
+	//글 삭제
 	
 
 	
