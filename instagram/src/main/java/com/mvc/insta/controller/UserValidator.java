@@ -36,7 +36,7 @@ public class UserValidator implements Validator{
 //					errors.rejectValue("user_email", "bad", "올바르지 않는 형식입니다.");
 //				}
 //		}
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user_email", "required", "필수입력 사항입니다.");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user_id", "required", "필수입력 사항입니다.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user_name", "required", "필수입력 사항입니다.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "user_pw", "required", "필수입력 사항입니다.");
 		//이름 유효성 체크

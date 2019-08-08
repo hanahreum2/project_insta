@@ -14,21 +14,26 @@
 </head>
 <body class="header-body">
     <ul class="horizontal-menu">
-        <li class="header-list"><a class="header-a" href="#"><img id="header-logo" src="/resources/img/header/header-logo.png"></a></li>
+        <li class="header-list"><a class="header-a" href="/"><img id="header-logo" src="/resources/img/header/header-logo.png"></a></li>
         <li class="header-list"><a class="header-a" href="#"><input type="text" id="header-search" placeholder="검색"></a></li>
         <li class="header-list"><a class="header-a" href="board/write"><img id="header-img" src="/resources/img/header/notification.png"></a></li>
+<<<<<<< HEAD
         <li class="header-list"><a class="header-a" href="board/myPage"><img id="header-img" src="/resources/img/header/like.png"></a></li>
         <li class="header-list"><a class="header-a" href="/listUser.do"><img id="header-img" src="/resources/img/header/user.png"></a></li>
+=======
+        <li class="header-list"><a class="header-a" href="#"><img id="header-img" src="/resources/img/header/like.png"></a></li>
+        <li class="header-list"><a class="header-a" href="/viewUser.do"><img id="header-img" src="/resources/img/header/user.png"></a></li>
+>>>>>>> 0069d611cf3e3cf00dc4208b11e8ced8c7b1e882
         
         <li class="header-list">
-        <c:if test="${login != null}">
+        <c:if test="${user != null}">
 			<a class="header-a" href="/signOut.do"><img id="header-img" src="/resources/img/header/logout.png"></a>
         </c:if>
         </li>
         
         <li style="list-style-type: none;">
-	        <c:if test="${login != null}">
-	   			<c:out value="${login.user_id}님 로그인중" />
+	        <c:if test="${user != null}">
+	   			<c:out value="${user.user_id}님 로그인중" />
 			</c:if>
 		</li>
 

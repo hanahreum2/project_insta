@@ -21,7 +21,7 @@
             <form:form class="sign_Form" modelAttribute="userVO" action="/signUp.do" method="post">
               
               <form:input type="text" path="user_id" id="user_id" name="user_id" placeholder="ID" />
-				<button type="button" onclick="check_id()">중복</button>
+			  <button type="button" onclick="check_id()">중복</button>
              
               
               <p class="result"><span class="msg"></span></p>
@@ -30,7 +30,6 @@
               <p class="result2"><span class="msg2"></span></p>
               
               <form:input type="password" id="user_pw" path="user_pw" name="user_pw" placeholder="비밀번호"/>
-              
               <p class="result1"><span class="msg1"></span></p>
               
              <!--  <div id="result1"></div> -->
@@ -38,9 +37,11 @@
               <form:input type="password" id="user_check_pw" path="user_check_pw" name="user_check_pw" placeholder="비밀번호 확인"/>
               <form:errors cssStyle="color: red; font-size: 10px;" path="user_check_pw" />
               
-              <form:input type="text" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL" />
+              <form:input type="email" path="user_email" id="user_email" name="user_email" placeholder="E-MAIL" />
               
-              <button id="submit_btn">회원가입</button>
+              
+              
+              <button id="submit_btn" type="submit">회원가입</button>
               
               <div class="hr-sect">또는</div>
 

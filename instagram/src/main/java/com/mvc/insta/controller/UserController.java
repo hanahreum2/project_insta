@@ -65,7 +65,7 @@ public class UserController {
 		if(userService.loginUser(userVO) != null) {
 			System.out.println("占싸깍옙占싸쇽옙占쏙옙");
 			mav.setViewName("/main/main");
-			session.setAttribute("login", userService.loginUser(userVO));
+			session.setAttribute("user", userService.loginUser(userVO));
 			session.setMaxInactiveInterval(30*60); //占싣뱄옙占싶듸옙 占쏙옙占싹곤옙 30占싻듸옙占싫몌옙 占싸깍옙占쏙옙 占쏙옙占쏙옙
 		}
 		else {
@@ -88,12 +88,17 @@ public class UserController {
 	@RequestMapping(value = "/signUp.do", method = RequestMethod.POST)
 	public String MemberInit(@ModelAttribute UserVO userVO, Errors errors, Model model) throws Exception {
     	new UserValidator().validate(userVO, errors);
+        System.out.println("signup.do");
+    	
         if(errors.hasErrors()){ 
+        	System.out.println("에러있따");
             return "user/signUpForm";  
+        }else {
+        	
+        	userService.insertUser(userVO);
+        	return "user/signInForm";
         }
 
-        userService.insertUser(userVO);
-		return "user/signInForm";
     }
 	
 	
@@ -108,9 +113,8 @@ public class UserController {
 	
 	@RequestMapping(value="/viewUser.do")
 	public String userView(UserVO userVO, Model model) throws Exception {
-		UserVO userVO1 = userService.viewUser(userVO);
-		model.addAttribute("user", userVO1);
-		System.out.println(userVO1.getUser_email());
+		
+		model.addAttribute("user", userService.viewUser(userVO));
 		
 		return "user/viewUser";
 	}
@@ -136,22 +140,15 @@ public class UserController {
 	
 		
 	@RequestMapping(value = "/updateUser.do", method = RequestMethod.POST)
-	public String update(UserVO userVO, HttpSession session) throws Exception {
+	public String update(@ModelAttribute UserVO userVO, HttpSession session) throws Exception {
 		userService.updateUser(userVO);
 		session.setAttribute("user", userVO);
-		return "main/main";
+		return "redirect:/listUser.do";
 		
 	}
 		
 		
 
-	
-	
-	
 
-	
-	
-	
-		
 	
 }

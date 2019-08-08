@@ -148,8 +148,13 @@
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
+<<<<<<< HEAD
 		<Context docBase="instagram" path="/" reloadable="true" source="org.eclipse.jst.jee.server:instagram"/>
       <Context docBase="instagram" path="/insta" reloadable="true" source="org.eclipse.jst.jee.server:instagram"/></Host>
+=======
+		<Context path="/img" reloadable="true" docBase="C:\\upload"/>
+      <Context docBase="instagram" path="/" reloadable="true" source="org.eclipse.jst.jee.server:instagram"/></Host>
+>>>>>>> 0069d611cf3e3cf00dc4208b11e8ced8c7b1e882
     </Engine>
   </Service>
 </Server>
